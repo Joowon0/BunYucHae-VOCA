@@ -1,0 +1,6 @@
+javOnet ID: rnwhdghl12@naver.com
+javOnet key: p7F4-Wd2m-m8EZ-Hz62-d2SX
+
+ms key: 01994f84e3d64105afdb2662bc3e837e
+url: http://docs.microsofttranslator.com/oauth-token.html
+
