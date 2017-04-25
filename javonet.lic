@@ -1,0 +1,26 @@
+<auth xmlns="">
+  <licenceKey>p7F4-Wd2m-m8EZ-Hz62-d2SX</licenceKey>
+  <isServerEditionOs>False</isServerEditionOs>
+  <userName>Jonghoe koo</userName>
+  <appName>javOnetTrial|javOnet</appName>
+  <appVersion>3.0</appVersion>
+  <email>rnwhdghl12@naver.com</email>
+  <verify>jLzSgxpBY1iHCAbLS1iq8zyzsIY2DcKczN52CiqW6xYxUbUGRaABgkjQIe2BSmAJ8okNYqtf7+7P5x7o0Drw5138/VSAxJtdeSBDk7RJARMrzi9drVK5yLzy1mTWnSa6pTjRhwu9fF1kvYQCQUrblCm7SXGmVJ4nLVmvvacwQIk=</verify>
+  <callsAllowed />
+  <classesAllowed />
+  <approvedIds>bLi7kEzsNPzFSViIGCpu3OhBiCzzMoOGOnWpBlhrcfWvOH2tXs2cg4O4dqQs52DzdWPGD/J3mVu3m/pMxmPU1dhwgbt1V7/r+LopPf8gBIHz4tUlwr9Dls3p9v7rMCLd285N7f4Qp9Z39AEp3FVe13DWxkA1+Es/9r1h/Ygoj2w=</approvedIds>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>c3PFgZ9roiaUUu/vQpX+ZsFFVVs=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>JT9gykr9ch1T0diPK80I8TxeIHy2w7rYoUuoZcEEprFi/W0Ct7aEZSALHPuRnHKZK46hZ9GhyBPCe4U2yQ/0NUnivFrCsGCf6d+uS4eFDUGNfIoMffgLS1T5YdpDnwDX63UUwhDMuA48aMCQes5YYxuhZDgwdRseIQvVZ9ziZ7c=</SignatureValue>
+  </Signature>
+</auth>
