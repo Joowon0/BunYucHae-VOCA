@@ -6,14 +6,11 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
-
 import javax.net.ssl.HttpsURLConnection;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import bun_yuchae_voca.KeyManager.CompanyType;
-
 
 public class Scanner {
 	private KeyManager manager;
@@ -21,7 +18,6 @@ public class Scanner {
 	public Scanner(){
 		manager = KeyManager.getInstance();
 	}
-	
 	public String act( boolean isOverlayRequired, String imageUrl, String language){
 		JSONObject ob = null;
 		String post = null;
@@ -102,13 +98,8 @@ public class Scanner {
 			result.append(URLEncoder.encode(key, "UTF-8"));
 			result.append("=");
 			result.append(URLEncoder.encode(value.toString(), "UTF-8"));
-			System.out.println(result);
 		}
 		
 		return result.toString();
-	}
-	public static void main(String args[]){
-		Scanner sc = new Scanner();
-		System.out.println(sc.act(false, "http://dl.a9t9.com/blog/ocr-online/screenshot.jpg", "eng"));
 	}
 }
