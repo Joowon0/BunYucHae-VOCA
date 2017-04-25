@@ -47,7 +47,7 @@ public class MSKey extends Key {
 	}
 	
 	@Override
-	public String request() {
+	public synchronized String request() {
 		// TODO Auto-generated method stub
 		if(!checkSecretKey())
 			requestSecretKey();
