@@ -1,30 +1,22 @@
 package bun_yuchae_voca;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Iterator;
-
-import javax.imageio.ImageIO;
 import javax.net.ssl.HttpsURLConnection;
-
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import bun_yuchae_voca.KeyManager.CompanyType;
-
 
 public class Scanner {
 	 KeyManager manager;
@@ -49,7 +41,7 @@ public class Scanner {
 		return scanned;
 	}
 	 
-	private String getTextFromJSON(String body) {
+	private String getTextFromJSON(String body) {		
 		JSONObject ob=new JSONObject(body);
 		String text = new String();
 		JSONArray bodyArray =null;
@@ -62,6 +54,8 @@ public class Scanner {
 			JSONObject data = (JSONObject) bodyArray.get(i);  
 			text +=(data.get("ParsedText").toString());
 		}
+		text = text.replaceAll("\n", "");
+		text = text.replaceAll("\r", "");
 		return text;
 	}
 	private HttpsURLConnection getConnection() {
@@ -174,4 +168,5 @@ public class Scanner {
 	    }
 	    return result.toString();
 	}
+	
 }

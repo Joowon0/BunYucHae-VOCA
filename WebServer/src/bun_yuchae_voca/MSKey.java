@@ -37,10 +37,9 @@ public class MSKey extends Key {
 		} catch (IOException e) { 
 			e.printStackTrace(); 
 		} 				
-		secretKey = "Bearer "+line;
-		System.out.println("secretKey"+secretKey);
+		secretKey = "Bearer "+line;		
 	}
-
+	
 	// 생성시간으로부터 10분이 지나면 false 반환
 	protected boolean checkSecretKey() {
 		long diff =maked - System.currentTimeMillis()/60000; 
@@ -55,5 +54,9 @@ public class MSKey extends Key {
 		
 		return secretKey;
 	}
-
+	public static void main(String args[]){
+		KeyManager mana=KeyManager.getInstance();
+		String ms = mana.requestKey(KeyManager.CompanyType.MS_BING);
+		System.out.println(ms);
+	}
 }

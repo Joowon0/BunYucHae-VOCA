@@ -8,7 +8,7 @@ public class KeyManager {
 	private static Vector<Key> keys=new Vector<Key>();
 	private KeyManager(){
 		addKey(new MSKey("90e84bd1b5204903b05623dd06500f0d",CompanyType.MS_BING));
-		addKey(new JAVONETKey("p7F4-Wd2m-m8EZ-Hz62-d2SX",CompanyType.JAVONET));
+		addKey(new JAVONETKey("q3QD-k2N8-My3s-Ak72-Jy75",CompanyType.JAVONET));
 		addKey(new OCRKey("2e57ea933f88957",CompanyType.OCR));
 	}
 	
