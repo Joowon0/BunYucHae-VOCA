@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,7 +34,7 @@
     	border: 1px solid black;
     	border-collapse: collapse;    	
 	}
-	th, td {			
+	th, td {		
     	padding: 5px;
     	text-align: left;
 	}
@@ -51,22 +50,25 @@
 		text-align: left;
 	}	
 </style>
+
 <title>Bun_yuchae_VOCA</title>
 </head>
-<body>	
+<body>
 	<div id="nav_menu">
 		<ul>
-		<li><a href="login.jsp">로그인</a></li>
+		<li><a id="login" href="#" value="로그인"></a></li>
 		<li><a href="/WebServer/Main">번역기</a></li>		
 		</ul>
 	</div>
 	
 	<p class="head">번역해-VOCA</p>
-	
-	<form method="post" action="/WebServer/LoginCheck" style="text-align: left;">
-		아이디:  <input type="text" name="logID"><br>
-		비밀번호: <input type="password" name="logPW"><br>
-		<input type="submit" value="로그인">
-	</form>	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+            var val = location.href.substr(location.href.lastIndexOf('=') + 1);
+            document.getElementById("login").innerHTML=val;
+            console.log('val : ' + location.href);
+        });
+    </script>
 </body>
 </html>

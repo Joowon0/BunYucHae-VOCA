@@ -4,7 +4,7 @@
 <head>
 <%!
     String ocrText=new String(),translated=new String(),url = new String();
-	String data=new String(),id=null,href=null;
+	String data=new String(),id="로그인",href="login.jsp";
 %>
 <%	
     request.setCharacterEncoding("euc-kr");
@@ -12,6 +12,10 @@
     translated = "";
     
     url = "https://www.hello.com/img_/hello_logo_hero.png";
+    System.out.println("Hello !!!!!");
+    if(request.getAttribute("logID")!=null){
+    	id=request.getAttribute("logID").toString();
+    }
     if(request.getAttribute("text")!=null)
     	ocrText = request.getAttribute("text").toString();
     if(request.getAttribute("translated")!=null)
@@ -20,7 +24,10 @@
     	url= request.getAttribute("url").toString();
     if(request.getAttribute("data")!=null)
     	data = request.getAttribute("data").toString();
-    
+    if(request.getAttribute("logID")!=null){
+    	id = request.getAttribute("logID").toString();
+    	href="LookData.jsp?logID="+id;
+    }
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <style>
@@ -76,8 +83,8 @@
 <body>
 	<div id="nav_menu">
 		<ul>
-		<li><a href="login.jsp">로그인</a></li>
-		<li><a href="main.jsp">번역기</a></li>		
+		<li><a href=<%=href%>><%=id %></a></li>
+		<li><a href="/WebServer/Main">번역기</a></li>		
 		</ul>
 	</div>
 	
@@ -140,6 +147,7 @@
 	    document.getElementById("data").value=document.getElementById("URL").value;
 	}
 	
+
 	function changeImg(){	
 		var input = document.getElementById("file-upload");
 		var fReader = new FileReader();

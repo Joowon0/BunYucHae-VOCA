@@ -53,10 +53,11 @@ public class MainBody extends HttpServlet {
 			
 			result = gTranslator.translateTextWithOptions(text,Language.Google.getToken(srcP),Language.Google.getToken(tgP));			
 		}
+		System.out.println("Bye !!!!!");
 		request.setAttribute("text", text);		
 		request.setAttribute("translated", result);
 		request.setAttribute("data", te);		
-		RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		rd.forward(request,response);
 	}
 	/**
