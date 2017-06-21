@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Translation1 extends AppCompatActivity {
     final static int ACT_EDIT = 0;
     public Button trans;
     public EditText te;
-
+    public ImageButton picture;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
