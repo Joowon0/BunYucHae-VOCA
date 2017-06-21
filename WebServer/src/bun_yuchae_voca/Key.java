@@ -13,7 +13,6 @@ public abstract class Key {
 	public abstract String request();
 	protected abstract boolean checkSecretKey() ;
 	public CompanyType getType() {
-
 		return type;
 	}
 }

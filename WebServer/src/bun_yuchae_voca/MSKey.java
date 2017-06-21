@@ -3,11 +3,6 @@ package bun_yuchae_voca;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -56,7 +51,6 @@ public class MSKey extends Key {
 	}
 	public static void main(String args[]){
 		KeyManager mana=KeyManager.getInstance();
-		String ms = mana.requestKey(KeyManager.CompanyType.MS_BING);
-		System.out.println(ms);
+		String ms = mana.requestKey(KeyManager.CompanyType.MS_BING);		
 	}
 }

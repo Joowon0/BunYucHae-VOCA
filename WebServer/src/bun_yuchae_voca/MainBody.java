@@ -17,16 +17,16 @@ import bun_yuchae_voca.Scanner.Format;
 /**
  * Servlet implementation class MainBody
  */
-@WebServlet("/MainBody")
+@WebServlet("/Main")
 public class MainBody extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-
+	GTranslator gTranslator ;
     /**
      * Default constructor. 
      */
     public MainBody() {
-    	
+    	gTranslator= new GTranslator();
         // TODO Auto-generated constructor stub
     }
 
@@ -36,22 +36,26 @@ public class MainBody extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");		
-		//response.setContentType("application/json");
-		
-		response.setCharacterEncoding("euc-kr");
-
-		
+		response.setCharacterEncoding("euc-kr");		
 		Scanner sc = new Scanner();
 		String text="", result="",url="";
-		String te = request.getParameter("url");
-		if(te != null) {
-			url = te;
-			text = sc.act(false,te,"eng",Format.URL);
-			result = MSTranslator.act(text,MSLanguage.ENGLISH,MSLanguage.KOREAN);			
+		String te = request.getParameter("data");
+		String srcP = request.getParameter("source");		
+		String tgP = request.getParameter("target");
+		if(te != null && srcP!=null && tgP!=null) {			
+			if(te.substring(0,te.indexOf(':')).compareTo("data")!=0){
+				text = sc.act(false,te,Language.OCR.getToken(srcP),Format.URL);				
+			}
+			else{				
+				text = sc.act(false,te,Language.OCR.getToken(srcP),Format.Base64);
+			}
+			url = te;			
+			
+			result = gTranslator.translateTextWithOptions(text,Language.Google.getToken(srcP),Language.Google.getToken(tgP));			
 		}
 		request.setAttribute("text", text);		
 		request.setAttribute("translated", result);
-		request.setAttribute("url", url);		
+		request.setAttribute("data", te);		
 		RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 		rd.forward(request,response);
 	}

@@ -2,9 +2,9 @@ package bun_yuchae_voca;
 
 import bun_yuchae_voca.KeyManager.CompanyType;
 
-public class JAVONETKey extends Key{
+public class GKey extends Key {
 
-	public JAVONETKey(String k, CompanyType t) {
+	public GKey(String k, CompanyType t) {
 		super(k, t);
 		// TODO Auto-generated constructor stub
 	}
@@ -18,7 +18,7 @@ public class JAVONETKey extends Key{
 	@Override
 	protected boolean checkSecretKey() {
 		// TODO Auto-generated method stub
-		return true;		
+		return true;
 	}
-	
+
 }

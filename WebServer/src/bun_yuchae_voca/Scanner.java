@@ -24,6 +24,7 @@ public class Scanner {
 	 public Scanner(){
 		 manager = KeyManager.getInstance();
 	 }
+	 
 	 public String act( boolean isOverlayRequired, String data, String language,Format f){
 		 // 스캔된 결과 값
 		String scanned=null;
@@ -58,6 +59,7 @@ public class Scanner {
 		text = text.replaceAll("\r", "");
 		return text;
 	}
+	
 	private HttpsURLConnection getConnection() {
 		URL obj=null;
 		try {
@@ -85,11 +87,12 @@ public class Scanner {
 			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 			return con;
 	 }
+	
 	 private String sendPost( boolean isOverlayRequired, String data, String language,Format f) throws Exception {			 		
 		HttpsURLConnection con = getConnection();
 		// JSON 파라미터 설정
 		JSONObject postDataParams = getJSONObejct(isOverlayRequired,data,language,f);
-		// Send post request
+		// Send post request		
 		con.setDoOutput(true);
 		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
 		
@@ -112,6 +115,7 @@ public class Scanner {
 		//return result
 	    return String.valueOf(response);
 	}
+	 
 	private JSONObject getJSONObejct(boolean isOverlayRequired, String data, String language, Format f) {
 		// TODO Auto-generated method stub
 		JSONObject object = new JSONObject();		
@@ -119,34 +123,15 @@ public class Scanner {
 		if(f == Format.URL) {
 			object.put("url", data);
 		}
-		else if(f == Format.Base64){			
-			String fileExt = data.substring(data.lastIndexOf(".")+1);
-			if(fileExt.compareTo("jpg")==0){
-				fileExt="jpeg";
-			}
-			String base64 = imageToBase64(data);
-			object.put("base64Image", "data:image/"+fileExt+";base64,"+base64);
+		else if(f == Format.Base64){							
+			object.put("base64Image", data);
 		}
 		object.put("isOverlayRequired", isOverlayRequired);
 		object.put("language", language);
 		return object;
 	}
 
-	private String imageToBase64(String path){
-		File file =  new File(path);
-        String encodedfile = null;                	
-        try {
-        	FileInputStream fileInputStreamReader = new FileInputStream(file);
-            byte[] bytes = new byte[(int)file.length()];
-            fileInputStreamReader.read(bytes);
-            encodedfile = new String(Base64.encodeBase64(bytes), "UTF-8");            
-        } catch (FileNotFoundException e) {
-        	e.printStackTrace();
-        } catch (IOException e) {
-        	e.printStackTrace();
-        }
-        return encodedfile;
-	}
+	
 	private String getPostDataString(JSONObject params) throws Exception {
 		StringBuilder result = new StringBuilder();
 	    boolean first = true;
@@ -167,6 +152,5 @@ public class Scanner {
 	        result.append(URLEncoder.encode(value.toString(), "UTF-8"));		
 	    }
 	    return result.toString();
-	}
-	
+	}	
 }

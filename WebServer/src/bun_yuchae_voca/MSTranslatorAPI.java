@@ -303,8 +303,7 @@ public abstract class MSTranslatorAPI {
     	try {
     		String string;
     		if (inputStream != null) {
-    			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, ENCODING));
-    			int i=0;
+    			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, ENCODING));    			
     			while (null != (string = reader.readLine())) {    				
                             // Need to strip the Unicode Zero-width Non-breaking Space. For some reason, the Microsoft AJAX
                             // services prepend this to every response
