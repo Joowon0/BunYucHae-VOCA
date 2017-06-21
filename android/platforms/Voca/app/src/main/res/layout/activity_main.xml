@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5"
+        >
+
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="번역해VOCA"
+        android:textSize="50dp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/app_name"
+        android:id="@+id/linear1"
+        android:layout_weight="2"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/translation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="번역"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="텍스트"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/line1"
+        android:layout_weight="2"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/dictionary"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="사전"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_weight="0.5" />
+
+        <Button
+            android:id="@+id/voca"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="단어"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+</LinearLayout>
