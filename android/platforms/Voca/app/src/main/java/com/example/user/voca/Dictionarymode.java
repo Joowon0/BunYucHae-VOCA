@@ -1,14 +1,21 @@
 package com.example.user.voca;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Dictionarymode extends AppCompatActivity {
     final static int ACT_EDIT = 0;
+    public Button savebtn;
     public Button dicbtn;
     public TextView utv;
     public TextView dtv;
@@ -21,6 +28,7 @@ public class Dictionarymode extends AppCompatActivity {
         dicbtn = (Button) findViewById(R.id.editmode);
         utv = (TextView)findViewById(R.id.upedit);
         dtv = (TextView)findViewById(R.id.downtextview);
+        savebtn = (Button)findViewById(R.id.savetext);
 
         Intent intent = getIntent();
         utv.setText(intent.getStringExtra("tTextIn"));
@@ -33,6 +41,36 @@ public class Dictionarymode extends AppCompatActivity {
                 dic_intent.putExtra("TextIn1", dtv.getText().toString());
                 startActivityForResult(dic_intent,ACT_EDIT);
             }
+        });
+        savebtn.setOnClickListener(new View.OnClickListener(){
+         @Override
+            public void onClick(View v){
+             android.app.AlertDialog.Builder ad = new AlertDialog.Builder(Dictionarymode.this);
+
+             final EditText et = new EditText(Dictionarymode.this);
+             ad.setView(et);
+
+             ad.setTitle("알림");
+             ad.setMessage("제목을 입력하세요");
+             ad.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialog, int which) {
+                     Log.v(TAG, "Yes Btn Click");
+                     String value = et.getText().toString();
+                     Log.v(TAG, value);
+                     dialog.dismiss();
+                 }
+             });
+
+             ad.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialog, int which) {
+                     Log.v(TAG, "No Btn Click");
+                     dialog.dismiss();
+                 }
+             });
+             ad.show();
+         }
         });
     }
     @Override

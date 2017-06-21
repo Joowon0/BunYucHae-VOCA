@@ -1,16 +1,19 @@
 package com.example.user.voca;
 
 import android.content.Intent;
+import android.graphics.Camera;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Translation1 extends AppCompatActivity {
     final static int ACT_EDIT = 0;
     public Button trans;
     public EditText te;
+    ImageButton picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,7 @@ public class Translation1 extends AppCompatActivity {
         setContentView(R.layout.activity_translation);
         trans = (Button) findViewById(R.id.transbtn);
         te = (EditText)findViewById(R.id.textedit);
+        picture = (ImageButton)findViewById(R.id.camerabtn);
 
         trans.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -27,6 +31,14 @@ public class Translation1 extends AppCompatActivity {
                 startActivityForResult(trans_intent,ACT_EDIT);
             }
         });
+        picture.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent picture_intent = new Intent(Translation1.this, setImage.class);
+                startActivityForResult(picture_intent,0);
+            }
+        });
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
