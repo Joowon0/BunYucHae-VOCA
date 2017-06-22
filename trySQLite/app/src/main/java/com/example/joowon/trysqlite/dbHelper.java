@@ -37,7 +37,7 @@ public class dbHelper extends SQLiteOpenHelper {
         return instance;
     }
     private dbHelper(Context context) {
-        super(context, "bunYacSQLite.db", null, 1);
+        super(context, "bunYacSQLite4.db", null, 1);
         th = new textHelper();
         wh = new wordHelper();
         tgh =new tagHelper();
@@ -80,19 +80,129 @@ public class dbHelper extends SQLiteOpenHelper {
                 + " _id   INTEGER PRIMARY KEY autoincrement, "
                 + " date  text, "           // last updated
                 + " name  VARCHAR(30), "    // TEXT
-                + " tNum  INTEGER DEFAULT 0, "
-                + " wNum  INTEGER DEFAULT 0  "
+                + " tNum  INTEGER DEFAULT 0 CHECK(tNum >= 0), "
+                + " wNum  INTEGER DEFAULT 0 CHECK(wNum >= 0)  "
                 + " ); ";
         db.execSQL(sql);
 
-        //db.close();
+
+        sql = " CREATE TRIGGER increTagTNum AFTER UPDATE ON textList " +
+                " BEGIN " +
+                "   UPDATE tagList " +
+                "   SET tNum = tNum + 1 " +
+                "   WHERE OLD.tag1 != NEW.tag1 " +
+                "     AND _id = NEW.tag1; " +
+
+                "   UPDATE tagList " +
+                "   SET tNum = tNum + 1 " +
+                "   WHERE OLD.tag2 != NEW.tag2 " +
+                "     AND _id = NEW.tag2;" +
+
+                "   UPDATE tagList " +
+                "   SET tNum = tNum + 1 " +
+                "   WHERE OLD.tag3 != NEW.tag3 " +
+                "     AND _id = NEW.tag3; " +
+                " END;  ";
+        db.execSQL(sql);
+
+        sql = " CREATE TRIGGER increTagWNum AFTER UPDATE ON wordList " +
+                " BEGIN " +
+                    " UPDATE tagList " +
+                    " SET wNum = wNum + 1 " +
+                    " WHERE OLD.tag1 != NEW.tag1" +
+                "      AND _id = NEW.tag1; " +
+
+                    " UPDATE tagList " +
+                    " SET wNum = wNum + 1 " +
+                    " WHERE OLD.tag2 != NEW.tag2 " +
+                "      AND _id = NEW.tag2; " +
+
+                    " UPDATE tagList " +
+                    " SET wNum = wNum + 1 " +
+                    " WHERE OLD.tag3 != NEW.tag3 " +
+                "     AND _id = NEW.tag3; " +
+                " END; ";
+        db.execSQL(sql);
+
+
+        sql = " CREATE TRIGGER decreTagTNum AFTER UPDATE ON textList " +
+                " BEGIN " +
+                "   UPDATE tagList " +
+                "   SET tNum = tNum - 1 " +
+                "   WHERE OLD.tag1 != NEW.tag1 " +
+                "     AND _id = OLD.tag1; " +
+
+                "   UPDATE tagList " +
+                "   SET tNum = tNum - 1 " +
+                "   WHERE OLD.tag2 != NEW.tag2 " +
+                "     AND _id = OLD.tag2;" +
+
+                "   UPDATE tagList " +
+                "   SET tNum = tNum - 1 " +
+                "   WHERE OLD.tag3 != NEW.tag3 " +
+                "     AND _id = OLD.tag3; " +
+                " END;  ";
+        db.execSQL(sql);
+
+        sql = " CREATE TRIGGER decreTagWNum AFTER UPDATE ON wordList " +
+                " BEGIN " +
+                " UPDATE tagList " +
+                " SET wNum = wNum - 1 " +
+                " WHERE OLD.tag1 != NEW.tag1" +
+                "      AND _id = OLD.tag1; " +
+
+                " UPDATE tagList " +
+                " SET wNum = wNum - 1 " +
+                " WHERE OLD.tag2 != NEW.tag2 " +
+                "      AND _id = OLD.tag2; " +
+
+                " UPDATE tagList " +
+                " SET wNum = wNum - 1 " +
+                " WHERE OLD.tag3 != NEW.tag3 " +
+                "     AND _id = OLD.tag3; " +
+                " END; ";
+        db.execSQL(sql);
+
+
+        sql = " CREATE TRIGGER decreTagTNum2 AFTER DELETE ON textList " +
+                " BEGIN " +
+                "   UPDATE tagList " +
+                "   SET tNum = tNum - 1 " +
+                "   WHERE _id = OLD.tag1 " +
+                "     OR  _id = OLD.tag2 " +
+                "     OR  _id = OLD.tag3; " +
+                " END;  ";
+        db.execSQL(sql);
+
+        sql = " CREATE TRIGGER decreTagWNum2 AFTER DELETE ON wordList " +
+                " BEGIN " +
+                " UPDATE tagList " +
+                " SET wNum = wNum - 1 " +
+                " WHERE _id = OLD.tag1 " +
+                "     OR  _id = OLD.tag2 " +
+                "     OR  _id = OLD.tag3; " +
+                " END; ";
+        db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db = getWritableDatabase();
 
-        String sql = " DROP TABLE IF EXISTS textList; ";
+        String sql = " DROP TRIGGER IF EXISTS increTagTNum; ";
+        db.execSQL(sql);
+        sql = " DROP TRIGGER IF EXISTS increTagWNum; ";
+        db.execSQL(sql);
+        sql = " DROP TRIGGER IF EXISTS decreTagTNum; ";
+        db.execSQL(sql);
+        sql = " DROP TRIGGER IF EXISTS decreTagWNum; ";
+        db.execSQL(sql);
+        sql = " DROP TRIGGER IF EXISTS decreTagTNum2; ";
+        db.execSQL(sql);
+        sql = " DROP TRIGGER IF EXISTS decreTagWNum2; ";
+        db.execSQL(sql);
+
+        sql = " DROP TABLE IF EXISTS textList; ";
         db.execSQL(sql);
         sql = " DROP TABLE IF EXISTS wordList; ";
         db.execSQL(sql);
