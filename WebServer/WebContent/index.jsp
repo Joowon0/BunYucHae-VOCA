@@ -4,7 +4,7 @@
 <head>
 <%!
     String ocrText=new String(),translated=new String(),url = new String();
-	String data=new String(),id="·Î±×ÀÎ",href="login.jsp";
+	String data=new String(),id="login",href="login.jsp";
 %>
 <%	
     request.setCharacterEncoding("euc-kr");
@@ -34,17 +34,17 @@
 
 	#nav_menu ul {
 	list-style-type:none;
-	/* ÁÂÃø ¿©¹é ¾ø¾Ö±â */
+	/* ì¢Œì¸¡ ì—¬ë°± ì—†ì• ê¸° */
 	padding-left:0px;
-	/* ¿ìÃø Á¤·Ä ÇÏ±â */
+	/* ìš°ì¸¡ ì •ë ¬ í•˜ê¸° */
 	float:right;
 	}
 	#nav_menu ul li {
 	display:inline;
 	border-left: 1px solid #c0c0c0;
-	/* Å×µÎ¸®¿Í ¸Þ´º °£°Ý ¹ú¸®±â. padding: À§ ¿À¸¥ÂÊ ¾Æ·¡ ¿ÞÂÊ; */
+	/* í…Œë‘ë¦¬ì™€ ë©”ë‰´ ê°„ê²© ë²Œë¦¬ê¸°. padding: ìœ„ ì˜¤ë¥¸ìª½ ì•„ëž˜ ì™¼ìª½; */
 	padding: 0px 10px 0px 10px;
-	/* ¸Þ´º¿Í Å×µÎ¸® »çÀÌ °£°Ý ¹ú¸®±â. margin: À§ ¿À¸¥ÂÊ ¾Æ·¡ ¿ÞÂÊ; */
+	/* ë©”ë‰´ì™€ í…Œë‘ë¦¬ ì‚¬ì´ ê°„ê²© ë²Œë¦¬ê¸°. margin: ìœ„ ì˜¤ë¥¸ìª½ ì•„ëž˜ ì™¼ìª½; */
 	margin: 5px 0px 5px 0px;
 	}
 	#nav_menu ul li:first-child {
@@ -84,30 +84,31 @@
 	<div id="nav_menu">
 		<ul>
 		<li><a href=<%=href%>><%=id %></a></li>
-		<li><a href="/WebServer/Main">¹ø¿ª±â</a></li>		
+		<li><a href="${pageContext.request.contextPath}/MainBody">Translation</a></li>		
 		</ul>
 	</div>
 	
-	<p class="head">¹ø¿ªÇØ-VOCA</p>
+	<p class="head">Bunyuchae-VOCA</p>
 	<br>
-	<form method = "post" action ="/WebServer/Main">
+		<form method = "post" action ="${pageContext.request.contextPath}/MainBody">
+		
 		File: <input type="file" id="file-upload" onchange="changeImg()"> <br><br>		
-		ImageURL: <input style="width: 50%;" type="text" id= "URL" name = "url" onchange="urlKeyDown()" ><br><br>
+		ImageURL: <input style="width: 50%;" type="text" id= "URL" name = "url" onchange="urlKeyDown()" > 		
 		Source: 
 		<select name="source">
-		    <option value="">¾ð¾î ¼±ÅÃ</option>
-		    <option value="English">¿µ¾î</option>
-		    <option value="Korean">ÇÑ±¹¾î</option>
-		    <option value="Japanese">ÀÏº»¾î</option>
-		    <option value="Chinese">Áß±¹¾î</option>
+		    <option value="">Language</option>
+		    <option value="English">English</option>
+		    <option value="Korean">Korean</option>
+		    <option value="Japanese">Japanese</option>
+		    <option value="Chinese">Chinese</option>
 		</select>
 		Target: 
 		<select name="target">
-		    <option value="">¾ð¾î ¼±ÅÃ</option>
-		    <option value="English">¿µ¾î</option>
-		    <option value="Korean">ÇÑ±¹¾î</option>
-		    <option value="Japanese">ÀÏº»¾î</option>
-		    <option value="Chinese">Áß±¹¾î</option>
+		    <option value="">Language</option>
+		    <option value="English">English</option>
+		    <option value="Korean">Korean</option>
+		    <option value="Japanese">Japanese</option>
+		    <option value="Chinese">Chinese</option>
 		</select>	
 		<br><br>
 		<table style="width: 100%">
@@ -135,9 +136,9 @@
 		
 		<table style="width:100%;">
 			<tr><th>
-			<input type="submit" Value = "¹ø¿ª" style="width: 100%;font-size:20px">
+			<input type="submit" Value = "Translating" style="width: 100%;font-size:20px">
 			</th><th>
-			<input type="Button" Value = "ÀúÀå" style="width: 100%;font-size:20px;">
+			<input type="Button" Value = "Save  Data" style="width: 100%;font-size:20px;">
 			</th></tr>
 		</table>
 	</form>

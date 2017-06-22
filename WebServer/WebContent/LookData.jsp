@@ -56,8 +56,8 @@
 <body>
 	<div id="nav_menu">
 		<ul>
-		<li><a id="login" href="#" value="로그인"></a></li>
-		<li><a href="/WebServer/Main">번역기</a></li>		
+		<li><a id="login" href="" value="로그인"></a></li>
+		<li><a href="${pageContext.request.contextPath}/MainBody">번역기</a></li>		
 		</ul>
 	</div>
 	

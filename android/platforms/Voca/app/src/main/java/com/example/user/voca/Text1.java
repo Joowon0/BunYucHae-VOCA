@@ -10,9 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import org.w3c.dom.Text;
 
-import static com.example.user.voca.Dictionary1.LIST_MENU;
+
 
 public class Text1 extends AppCompatActivity {
 

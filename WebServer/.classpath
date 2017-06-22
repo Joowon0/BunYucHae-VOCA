@@ -11,29 +11,38 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/commons-cli-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/fluent-hc-4.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/httpclient-4.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/httpclient-cache-4.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/httpclient-win-4.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/httpcore-4.4.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/httpcore-ab-4.4.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/httpcore-nio-4.4.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/httpmime-4.5.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/javonet-1.4hf29.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/jna-4.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/jna-platform-4.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/json-20160810.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Aparch Software Foundation/apache-tomcat-8.5.14/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/json-simple-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/jsoup-1.10.2.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/fluent-hc-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/httpclient-cache-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/httpclient-win-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/httpcore-ab-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/httpcore-nio-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/httpmime-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/javonet-1.4hf29.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/json-20160810.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/plzBunYuchaeBoZa/lib/jsoup-1.10.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

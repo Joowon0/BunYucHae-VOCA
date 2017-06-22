@@ -1,6 +1,7 @@
 package com.example.user.voca;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
         text = (Button) findViewById(R.id.text);
         dic = (Button) findViewById(R.id.dictionary);
         voca = (Button) findViewById(R.id.voca);
+
+        trn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        text.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        dic.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        voca.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+
         trn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
