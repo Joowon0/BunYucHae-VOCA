@@ -12,7 +12,7 @@ import java.util.Date;
 public class entry {
     public Date date;
 
-    static DateFormat df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+    static DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public String getDateInString() {
         String result = df.format(date);
 

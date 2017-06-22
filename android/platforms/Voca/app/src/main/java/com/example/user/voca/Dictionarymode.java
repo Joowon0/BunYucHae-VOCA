@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.app.Activity;
 import android.view.View;
@@ -22,6 +23,9 @@ public class Dictionarymode extends AppCompatActivity {
     public Button dicbtn;
     public TextView utv;
     public TextView dtv;
+    dbHelper mydbHelper;
+
+    Translation1 transActivity = (Translation1) Translation1.thisActivity;
     public static final String TAG = "Test_Alert_Dialog";
 
     @Override
@@ -32,12 +36,23 @@ public class Dictionarymode extends AppCompatActivity {
         utv = (TextView)findViewById(R.id.upedit);
         dtv = (TextView)findViewById(R.id.downtextview);
         savebtn = (Button)findViewById(R.id.savetext);
-        trans = (Button) findViewById(R.id.editmode);
+        trans = (Button) findViewById(R.id.translation);
+        search = (Button) findViewById(R.id.search);
+
+        mydbHelper = dbHelper.getInstance(getApplicationContext());
+
+
+        utv.setMovementMethod(ScrollingMovementMethod.getInstance());
+        dtv.setMovementMethod(ScrollingMovementMethod.getInstance());
+        utv.setMaxHeight(utv.getMaxHeight());
+        dtv.setMaxHeight(dtv.getMaxHeight());
 
         dicbtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         utv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         dtv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         savebtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        trans.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        search.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
 
         Intent intent = getIntent();
         utv.setText(intent.getStringExtra("tTextIn"));
@@ -66,8 +81,16 @@ public class Dictionarymode extends AppCompatActivity {
                  public void onClick(DialogInterface dialog, int which) {
                      Log.v(TAG, "Yes Btn Click");
                      String value = et.getText().toString();
+                     String text1 = utv.getText().toString();
+                     String text2 = dtv.getText().toString();
                      Log.v(TAG, value);
                      dialog.dismiss();
+                     mydbHelper.text().insert(value, text1, text2);
+
+                     Intent intent = new Intent(Dictionarymode.this, Text1.class);
+                     startActivityForResult(intent, 0);
+                     transActivity.finish();
+                     finish();
                  }
              });
 

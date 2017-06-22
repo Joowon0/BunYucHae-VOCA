@@ -2,9 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/t2ll">
+    android:id="@+id/t2ll"
+    android:weightSum="20">
 
+    <Button
+        android:id="@+id/savebtn"
+        android:text="단어장에 저장하기"
+        android:background="@drawable/back"
+        android:textSize="30dp"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <TextView
+        android:layout_weight="19"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="New Text"

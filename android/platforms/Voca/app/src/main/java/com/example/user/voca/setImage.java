@@ -36,9 +36,8 @@ public class setImage extends Activity{
             public void onClick(View v) {
 
                 // 카메라 호출
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT,
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString());
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
 
                 // 이미지 잘라내기 위한 크기
                 intent.putExtra("crop", "true");
@@ -89,7 +88,6 @@ public class setImage extends Activity{
             if (extras != null) {
                 Bitmap photo = extras.getParcelable("data");
                 imgview.setImageBitmap(photo);
-
             }
         }
         if (requestCode == PICK_FROM_GALLERY) {

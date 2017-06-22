@@ -22,8 +22,8 @@
         <activity android:name=".Editmode" />
         <activity android:name=".Dictionarymode" />
         <activity android:name=".Text2" />
-        \
-        <activity android:name=".setImage" />
+        <activity android:name=".setImage" >
+        </activity>
         <activity android:name=".Dictionary2"></activity>
     </application>
 

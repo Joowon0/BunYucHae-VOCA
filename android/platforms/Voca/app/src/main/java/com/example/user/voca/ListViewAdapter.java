@@ -63,10 +63,18 @@ public class ListViewAdapter extends BaseAdapter {
         return listViewItemList.get(position) ;
     }
 
+    public void clearall(){
+        try {
+            listViewItemList.clear();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem( String title, String desc) {
+    public void addItem(int id,  String title, String desc) {
         ListViewItem item = new ListViewItem();
 
+        item.setId(id);
         item.setTitle(title);
         item.setDesc(desc);
 
