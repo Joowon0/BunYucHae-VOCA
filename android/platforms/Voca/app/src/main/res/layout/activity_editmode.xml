@@ -35,10 +35,8 @@
             android:entries="@array/language2"
             android:text="한국어"/>
         <Button
-<<<<<<< HEAD
+
             android:id="@+id/translate"
-=======
->>>>>>> 518d07afac0b1212d0f6a89ba14bf00052acd01a
             android:textSize="30dp"
             android:background="@drawable/back"
             android:textColor="#FFFFFF"

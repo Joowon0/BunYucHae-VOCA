@@ -40,7 +40,7 @@ public class Translation1 extends AppCompatActivity {
         picture.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent picture_intent = new Intent(Translation1.this, setImage.class);
+                Intent picture_intent = new Intent(Translation1.this, MyCamera.class);
                 startActivityForResult(picture_intent,0);
             }
         });

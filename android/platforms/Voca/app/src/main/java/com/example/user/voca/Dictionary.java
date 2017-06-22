@@ -1,6 +1,8 @@
 package com.example.user.voca;
 
 
+import android.util.Log;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -25,7 +27,9 @@ public class Dictionary {
 
         String url = "http://endic.naver.com"+href;
         try {
-            Document doc = Jsoup.connect(url).get();
+            Document doc = null;
+            while(doc==null)
+                doc = Jsoup.connect(url).get();
             Elements ele = doc.select("div.tit h3");
             String value = ele.get(0).text();
             ele = doc.select("dl.list_a3 span");
@@ -44,15 +48,18 @@ public class Dictionary {
                         data.examples.add(ele.get(i).text()+"\n"+ele.get(++i).text());
                     }
                     else{
-<<<<<<< HEAD
-                        if(ele.get(i).text()!=null)
-                            data.mean+=ele.get(i).text();
-=======
-                        data.mean+=ele.get(i).text();
->>>>>>> 518d07afac0b1212d0f6a89ba14bf00052acd01a
+                        Log.d("Text",ele.get(i).text());
+                        if(ele.get(i)!=null) {
+                            if(data==null) {
+                                data = new DictWord();
+                                words.add(data);
+                            }
+                            data.mean += ele.get(i).text();
+                        }
                     }
                 }
             }
+            Log.d("Data",data.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

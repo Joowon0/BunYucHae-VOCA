@@ -34,23 +34,18 @@ public class Dictionarymode extends AppCompatActivity {
         utv = (TextView)findViewById(R.id.upedit);
         dtv = (TextView)findViewById(R.id.downtextview);
         savebtn = (Button)findViewById(R.id.savetext);
-<<<<<<< HEAD
+
         trans = (Button) findViewById(R.id.translation);
         bf = (Spinner)findViewById(R.id.before_lang);
         af = (Spinner)findViewById(R.id.after_lang);
-=======
-        trans = (Button) findViewById(R.id.editmode);
 
->>>>>>> 518d07afac0b1212d0f6a89ba14bf00052acd01a
         dicbtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         utv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         dtv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         savebtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
-<<<<<<< HEAD
-        RequestAPI request = new RequestAPI();
-=======
 
->>>>>>> 518d07afac0b1212d0f6a89ba14bf00052acd01a
+        RequestAPI request = new RequestAPI();
+
         Intent intent = getIntent();
         utv.setText(intent.getStringExtra("tTextIn"));
         dtv.setText(request.requestTranslating(intent.getStringExtra("tTextIn"),"English","Korean"));

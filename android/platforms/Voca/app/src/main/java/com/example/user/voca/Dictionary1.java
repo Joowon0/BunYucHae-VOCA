@@ -82,7 +82,10 @@ public class Dictionary1 extends AppCompatActivity {
             return words;
         }
         public void run(){
-            value = Dictionary.getData(Word,null,null);
+            value = null;
+            while(value==null)
+                value = Dictionary.getData(Word,null,null);
+
         }
     }
 }
