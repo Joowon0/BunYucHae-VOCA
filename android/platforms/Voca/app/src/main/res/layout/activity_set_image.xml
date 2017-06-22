@@ -36,7 +36,16 @@
         android:layout_marginTop="10dp"
         android:text="갤러리에서 이미지 가져오기 "
         android:typeface="sans" />
-
+    <Button
+        android:background="@drawable/back"
+        android:textColor="#FFFFFF"
+        android:id="@+id/btn_seleted"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="결정"
+        android:typeface="sans" />
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
