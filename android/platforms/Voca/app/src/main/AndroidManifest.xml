@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.user.voca">
-    //여기
-    <uses-permission
-        android:name="android.permission.CAMERA" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //여기
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,10 +21,10 @@
         <activity android:name=".Dictionary1" />
         <activity android:name=".Editmode" />
         <activity android:name=".Dictionarymode" />
-        <activity android:name=".listview_item" />
         <activity android:name=".Text2" />
-        <activity android:name=".pictuer_send" />
-        <activity android:name=".setImage"></activity>
+        \
+        <activity android:name=".setImage" />
+        <activity android:name=".Dictionary2"></activity>
     </application>
 
 </manifest>

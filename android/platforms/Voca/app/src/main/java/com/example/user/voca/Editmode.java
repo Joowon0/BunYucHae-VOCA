@@ -3,6 +3,7 @@ package com.example.user.voca;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,11 @@ public class Editmode extends AppCompatActivity {
         uet = (EditText)findViewById(R.id.upedit);
         det = (EditText)findViewById(R.id.downedit);
         savebtn = (Button)findViewById(R.id.savetext);
+
+        editbtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        uet.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        det.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        savebtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
 
         Intent dic_intent = getIntent();
         uet.setText(dic_intent.getStringExtra("TextIn"));

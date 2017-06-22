@@ -13,18 +13,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+            android:background="@drawable/back"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp"
             android:id="@+id/a_sort"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text = "A"/>
         <Button
+            android:textSize="40dp"
+            android:background="@drawable/back"
+            android:textColor="#FFFFFF"
             android:id="@+id/b_sort"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text = "B"/>
         <Button
+            android:textSize="40dp"
+            android:background="@drawable/back"
+            android:textColor="#FFFFFF"
             android:id="@+id/c_sort"
             android:layout_weight="1"
             android:layout_width="wrap_content"

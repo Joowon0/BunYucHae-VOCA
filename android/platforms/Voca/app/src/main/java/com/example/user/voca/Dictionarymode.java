@@ -3,6 +3,7 @@ package com.example.user.voca;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 public class Dictionarymode extends AppCompatActivity {
     final static int ACT_EDIT = 0;
     public Button savebtn;
+    public Button search;
+    public Button trans;
     public Button dicbtn;
     public TextView utv;
     public TextView dtv;
@@ -29,6 +32,12 @@ public class Dictionarymode extends AppCompatActivity {
         utv = (TextView)findViewById(R.id.upedit);
         dtv = (TextView)findViewById(R.id.downtextview);
         savebtn = (Button)findViewById(R.id.savetext);
+        trans = (Button) findViewById(R.id.editmode);
+
+        dicbtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        utv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        dtv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        savebtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
 
         Intent intent = getIntent();
         utv.setText(intent.getStringExtra("tTextIn"));
@@ -50,8 +59,8 @@ public class Dictionarymode extends AppCompatActivity {
              final EditText et = new EditText(Dictionarymode.this);
              ad.setView(et);
 
-             ad.setTitle("알림");
-             ad.setMessage("제목을 입력하세요");
+             ad.setTitle("원본과 번역본을 저장합니다.");
+             ad.setMessage("저장할 text의 title을 입력하세요");
              ad.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                  @Override
                  public void onClick(DialogInterface dialog, int which) {

@@ -1,6 +1,7 @@
 package com.example.user.voca;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,6 @@ import android.widget.ListView;
 
 import org.w3c.dom.Text;
 
-import static com.example.user.voca.Dictionary1.LIST_MENU;
 
 public class Voca1 extends AppCompatActivity {
 
@@ -31,6 +31,7 @@ public class Voca1 extends AppCompatActivity {
         // 리스트뷰 참조 및 Adapter달기
         listview = (ListView) findViewById(R.id.listview1);
         listview.setAdapter(adapter);
+
 
         // 첫 번째 아이템 추가.
         adapter.addItem( "Box", "Account Box Black 36dp") ;

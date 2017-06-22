@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -22,6 +23,9 @@ public class Text2 extends Activity
         Intent intent = getIntent();
         title = (TextView)findViewById(R.id.title);
         cont = (TextView)findViewById(R.id.content);
+
+        title.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        cont.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
 
         LinearLayout llBackground = (LinearLayout)findViewById(R.id.t2ll);
         title.setText(getIntent().getStringExtra("title"));
