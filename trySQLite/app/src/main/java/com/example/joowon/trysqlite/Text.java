@@ -20,6 +20,7 @@ public class Text extends entry{
 //    public Date   date;
     public String title;
     public String text;
+    public String txt2;
     public int    tag1;
     public int    tag2;
     public int    tag3;
@@ -38,9 +39,11 @@ public class Text extends entry{
                 "\nDate  : " + getDateInString() +
                 "\nTitle : " + title +
                 "\nText  : " + text +
+                "\nTxt2  : " + txt2 +
                 "\nTag1 : "  + tag1 +
                 "\t\tTag2 : " + tag2 +
                 "\t\tTag3 : " + tag3 + "\n\n";
         return result;
     }
 }
+

@@ -37,7 +37,7 @@ public class dbHelper extends SQLiteOpenHelper {
         return instance;
     }
     private dbHelper(Context context) {
-        super(context, "bunYacSQLite4.db", null, 1);
+        super(context, "bunYacSQLite6.db", null, 1);
         th = new textHelper();
         wh = new wordHelper();
         tgh =new tagHelper();
@@ -54,29 +54,7 @@ public class dbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //this.db = getWritableDatabase();
 
-        String sql = "create table if not exists textList( "
-                + " _id   INTEGER PRIMARY KEY autoincrement, "
-                + " date  text, "
-                + " title VARCHAR(40), "     // TEXT
-                + " texts VARCHAR(255), "    // TEXT
-                + " tag1  INTEGER DEFAULT 0, "
-                + " tag2  INTEGER DEFAULT 0, "
-                + " tag3  INTEGER DEFAULT 0 "
-                + " ); ";
-        db.execSQL(sql);
-
-        sql = "create table if not exists wordList ( "
-                + " _id   INTEGER PRIMARY KEY autoincrement, "
-                + " date  text, "
-                + " name  VARCHAR(30), "    // TEXT
-                + " defs  VARCHAR(80), "    // TEXT
-                + " tag1  INTEGER DEFAULT 0, "
-                + " tag2  INTEGER DEFAULT 0, "
-                + " tag3  INTEGER DEFAULT 0 "
-                + " ); ";
-        db.execSQL(sql);
-
-        sql = "create table if not exists tagList ( "
+        String sql = "create table if not exists tagList ( "
                 + " _id   INTEGER PRIMARY KEY autoincrement, "
                 + " date  text, "           // last updated
                 + " name  VARCHAR(30), "    // TEXT
@@ -85,6 +63,28 @@ public class dbHelper extends SQLiteOpenHelper {
                 + " ); ";
         db.execSQL(sql);
 
+        sql = "create table if not exists textList( "
+                + " _id   INTEGER PRIMARY KEY autoincrement, "
+                + " date  text, "
+                + " title VARCHAR(40) NOT NULL, "     // TEXT
+                + " texts VARCHAR(255), "    // TEXT
+                + " txts2 VARCHAR(255), "    // TEXT
+                + " tag1  INTEGER DEFAULT 0 REFERENCES tagList(_id), "
+                + " tag2  INTEGER DEFAULT 0 REFERENCES tagList(_id), "
+                + " tag3  INTEGER DEFAULT 0 REFERENCES tagList(_id) "
+                + " ); ";
+        db.execSQL(sql);
+
+        sql = "create table if not exists wordList ( "
+                + " _id   INTEGER PRIMARY KEY autoincrement, "
+                + " date  text, "
+                + " name  VARCHAR(30), "    // TEXT
+                + " defs  VARCHAR(80), "    // TEXT
+                + " tag1  INTEGER DEFAULT 0 REFERENCES tagList(_id), "
+                + " tag2  INTEGER DEFAULT 0 REFERENCES tagList(_id), "
+                + " tag3  INTEGER DEFAULT 0 REFERENCES tagList(_id)"
+                + " ); ";
+        db.execSQL(sql);
 
         sql = " CREATE TRIGGER increTagTNum AFTER UPDATE ON textList " +
                 " BEGIN " +
@@ -215,10 +215,10 @@ public class dbHelper extends SQLiteOpenHelper {
 
     public class textHelper {
         // insert a new text
-        public void insert(String titleIn, String textIn) {
+        public void insert(String titleIn, String textIn, String text2In) {
             db = getWritableDatabase();
-            String sql = " INSERT INTO textList (date, title, texts) " +
-                    " VALUES ( '" + Text.makeCurrDateInString() + "' , '" + titleIn + "' , '" + textIn + "' ); ";
+            String sql = " INSERT INTO textList (date, title, texts, txts2) " +
+                    " VALUES ( '" + Text.makeCurrDateInString() + "' , '" + titleIn + "' , '" + textIn + "', '" + text2In + "' ); ";
 
             db.execSQL(sql);
             //db.close();
@@ -249,8 +249,8 @@ public class dbHelper extends SQLiteOpenHelper {
         // modify the title and text to corresponding id
         // if there is nothing to modify, put null
         // if titleIn and textIn are same as b4, just updates date
-        public boolean modifyContentById(int idIn, String titleIn, String textIn) {
-            if (titleIn == null && textIn == null) {
+        public boolean modifyContentById(int idIn, String titleIn, String textIn, String text2In) {
+            if (titleIn == null && textIn == null && text2In == null) {
                 return false;
             }
             else {
@@ -262,6 +262,8 @@ public class dbHelper extends SQLiteOpenHelper {
                     sql += ", title = '" + titleIn + "' " ;
                 if (textIn != null)
                     sql += ", texts = '" + textIn + "' ";
+                if (text2In != null)
+                    sql += ", txts2 = '" + text2In + "' ";
                 sql += " WHERE _id = " + idIn + "; ";
 
                 db.execSQL(sql);
@@ -289,9 +291,10 @@ public class dbHelper extends SQLiteOpenHelper {
 
                 temp.title = cursor.getString(2);
                 temp.text  = cursor.getString(3);
-                temp.tag1  = cursor.getInt(4);
-                temp.tag2  = cursor.getInt(5);
-                temp.tag3  = cursor.getInt(6);
+                temp.txt2  = cursor.getString(4);
+                temp.tag1  = cursor.getInt(5);
+                temp.tag2  = cursor.getInt(6);
+                temp.tag3  = cursor.getInt(7);
 
                 result.add(temp);
             }
@@ -338,7 +341,8 @@ public class dbHelper extends SQLiteOpenHelper {
         public List<Text> getSearch(String lookFor) {
             String sql = " SELECT * FROM textList WHERE " +
                     " title LIKE '%" + lookFor + "%' OR " +
-                    " texts LIKE '%" + lookFor + "%' ;";
+                    " texts LIKE '%" + lookFor + "%' OR " +
+                    " txts2 LIKE '%" + lookFor + "%' ;";
             return getResult(sql);
         }
 
@@ -789,3 +793,4 @@ public class dbHelper extends SQLiteOpenHelper {
         }
     }
 }
+
