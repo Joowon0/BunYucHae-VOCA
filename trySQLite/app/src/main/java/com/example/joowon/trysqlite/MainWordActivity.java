@@ -120,7 +120,7 @@ public class MainWordActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int id  = Integer.parseInt(etID.getText().toString());
                 int tag = Integer.parseInt(etTag.getText().toString());
-                if (mydbHelper.word().addTagById(id, tag))
+                if (!mydbHelper.word().addTagById(id, tag))
                     result.setText("fail in addTagByID");
             }
         });

@@ -36,6 +36,11 @@ public class Editmode extends AppCompatActivity {
         det.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         savebtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
 
+        editbtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        uet.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        det.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+        savebtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+
         Intent dic_intent = getIntent();
         uet.setText(dic_intent.getStringExtra("TextIn"));
         det.setText(dic_intent.getStringExtra("TextIn1"));

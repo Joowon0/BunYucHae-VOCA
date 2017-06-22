@@ -13,7 +13,6 @@ import static android.R.attr.data;
 
 public class MainActivity extends AppCompatActivity {
     dbHelper mydbHelper;
-    //textListHelper textHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText etTitle = (EditText) findViewById(R.id.title);
         final EditText etText  = (EditText) findViewById(R.id.text);
+        final EditText etText2 = (EditText) findViewById(R.id.text2);
         final EditText etID    = (EditText) findViewById(R.id.id);
         final EditText etTag   = (EditText) findViewById(R.id.tag);
 
@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String title = etTitle.getText().toString();
                 String text  = etText.getText().toString();
-                mydbHelper.text().insert(title, text);
+                String text2  = etText2.getText().toString();
+                mydbHelper.text().insert(title, text, text2);
             }
         });
 
@@ -81,13 +82,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String title = etTitle.getText().toString();
                 String text  = etText.getText().toString();
+                String text2  = etText2.getText().toString();
                 int id  = Integer.parseInt(etID.getText().toString());
 
 
                 if (title == "") title = null;
                 if (text  == "") text  = null;
+                if (text  == "") text2  = null;
 
-                if (!mydbHelper.text().modifyContentById(id, title, text))
+                if (!mydbHelper.text().modifyContentById(id, title, text, text2))
                     result.setText("fail in modifyContentByID");
             }
         });
@@ -162,3 +165,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+

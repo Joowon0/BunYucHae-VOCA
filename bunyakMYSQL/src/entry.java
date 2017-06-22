@@ -1,5 +1,3 @@
-package com.example.joowon.trysqlite;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +15,7 @@ public class entry {
         String result = df.format(date);
 
         return result;
-    }
+    }    
 
     static public String makeCurrDateInString() {
         long now = System.currentTimeMillis();

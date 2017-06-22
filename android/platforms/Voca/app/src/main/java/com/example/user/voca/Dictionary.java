@@ -44,8 +44,12 @@ public class Dictionary {
                         data.examples.add(ele.get(i).text()+"\n"+ele.get(++i).text());
                     }
                     else{
+<<<<<<< HEAD
                         if(ele.get(i).text()!=null)
                             data.mean+=ele.get(i).text();
+=======
+                        data.mean+=ele.get(i).text();
+>>>>>>> 518d07afac0b1212d0f6a89ba14bf00052acd01a
                     }
                 }
             }
