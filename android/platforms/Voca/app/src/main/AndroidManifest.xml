@@ -26,5 +26,5 @@
         <activity android:name=".setImage" />
         <activity android:name=".Dictionary2"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
