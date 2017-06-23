@@ -45,6 +45,7 @@ public class Voca1 extends AppCompatActivity {
 
 
         // 첫 번째 아이템 추가.
+
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -53,6 +54,10 @@ public class Voca1 extends AppCompatActivity {
                 Bundle extras = new Bundle();
                 String titleStr = item.getTitle() ;
                 String descStr = item.getDesc() ;
+                extras.putInt("id",item.getId());
+                Intent intent = new Intent(Voca1.this, Voca2.class);
+                intent.putExtras(extras);
+                startActivity(intent);
             }
         }) ;
 
@@ -108,5 +113,6 @@ public class Voca1 extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+
     }
 }

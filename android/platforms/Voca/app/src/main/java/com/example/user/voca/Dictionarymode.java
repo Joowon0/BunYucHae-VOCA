@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class Dictionarymode extends AppCompatActivity {
@@ -23,9 +24,13 @@ public class Dictionarymode extends AppCompatActivity {
     public Button dicbtn;
     public TextView utv;
     public TextView dtv;
+
     dbHelper mydbHelper;
 
     Translation1 transActivity = (Translation1) Translation1.thisActivity;
+
+    Spinner bf,af;
+
     public static final String TAG = "Test_Alert_Dialog";
 
     @Override
@@ -36,6 +41,7 @@ public class Dictionarymode extends AppCompatActivity {
         utv = (TextView)findViewById(R.id.upedit);
         dtv = (TextView)findViewById(R.id.downtextview);
         savebtn = (Button)findViewById(R.id.savetext);
+
         trans = (Button) findViewById(R.id.translation);
         search = (Button) findViewById(R.id.search);
 
@@ -47,6 +53,11 @@ public class Dictionarymode extends AppCompatActivity {
         utv.setMaxHeight(utv.getMaxHeight());
         dtv.setMaxHeight(dtv.getMaxHeight());
 
+
+        trans = (Button) findViewById(R.id.translation);
+        bf = (Spinner)findViewById(R.id.before_lang);
+        af = (Spinner)findViewById(R.id.after_lang);
+
         dicbtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         utv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         dtv.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
@@ -54,9 +65,11 @@ public class Dictionarymode extends AppCompatActivity {
         trans.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         search.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
 
+        RequestAPI request = new RequestAPI();
+
         Intent intent = getIntent();
         utv.setText(intent.getStringExtra("tTextIn"));
-
+        dtv.setText(request.requestTranslating(intent.getStringExtra("tTextIn"),"English","Korean"));
         dicbtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -103,6 +116,13 @@ public class Dictionarymode extends AppCompatActivity {
              });
              ad.show();
          }
+        });
+        trans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RequestAPI request = new RequestAPI();
+                dtv.setText(request.requestTranslating(utv.getText().toString(),bf.getSelectedItem().toString(),af.getSelectedItem().toString()));
+            }
         });
     }
     @Override

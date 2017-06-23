@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="language1">
-        <item>영어</item>
-        <item>한국어</item>
-        <item>중국어</item>
-        <item>일어</item>
+        <item>English</item>
+        <item>Korean</item>
+        <item>Chinese</item>
+        <item>Japanese</item>
     </string-array>
 </resources>

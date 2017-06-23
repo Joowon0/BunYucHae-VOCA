@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':jsoup-1.10.2', ':commons-codec-1.9', ':commons-cli-1.2', ':commons-logging-1.2'

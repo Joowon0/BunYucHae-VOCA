@@ -57,13 +57,13 @@
 	<div id="nav_menu">
 		<ul>
 		<li><a href="login.jsp">로그인</a></li>
-		<li><a href="/WebServer/Main">번역기</a></li>		
+		<li><a href="${pageContext.request.contextPath}/MainBody">번역기</a></li>		
 		</ul>
 	</div>
 	
 	<p class="head">번역해-VOCA</p>
 	
-	<form method="post" action="/WebServer/LoginCheck" style="text-align: left;">
+	<form method="post" action="${pageContext.request.contextPath}/LoginCheck" style="text-align: left;">
 		아이디:  <input type="text" name="logID"><br>
 		비밀번호: <input type="password" name="logPW"><br>
 		<input type="submit" value="로그인">

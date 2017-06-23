@@ -2,6 +2,21 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/user/Desktop/experiment/자료/javonet-1.4hf29.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/javonet-1.4hf29.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/jsoup-1.10.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/fluent-hc-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/httpclient-cache-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/httpclient-win-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/httpcore-ab-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/httpcore-nio-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/httpmime-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/Translator/자료/lib/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rnwhd/Desktop/git/BunYucHae-VOCA/WebServer/lib/json-20160810.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

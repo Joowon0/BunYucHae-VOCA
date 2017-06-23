@@ -13,10 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-
 import java.util.List;
 
-import static com.example.user.voca.Dictionary1.LIST_MENU;
+
 
 public class Text1 extends AppCompatActivity {
     final ListViewAdapter adapter = new ListViewAdapter() ;
@@ -64,7 +63,7 @@ public class Text1 extends AppCompatActivity {
         }) ;
 
         adapter.clearall();
-        List<Text> inputs =  mydbHelper.text().getTextsSortedTitle();
+        List<Text> inputs =  mydbHelper.text().getTextsSortedDate();
         for (int i = 0; i < inputs.size(); i++) {
             int id = inputs.get(i).id;
             String t1 = inputs.get(i).title;

@@ -60,10 +60,9 @@ public class Text2 extends Activity
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getIntent().getIntExtra("id",id);
+                id = getIntent().getIntExtra("id",1);
                 mydbHelper.text().removeById(id);
-                System.out.println(id);
-                Intent remove_intent = new Intent(Text2.this, Text1.class);
+                Intent remove_intent = new Intent(Text2.this, MainActivity.class);
                 startActivityForResult(remove_intent,0);
                 finish();
             }

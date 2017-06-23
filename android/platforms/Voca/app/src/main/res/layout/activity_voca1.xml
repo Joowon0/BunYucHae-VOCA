@@ -15,30 +15,30 @@
         <Button
             android:background="@drawable/back"
             android:textColor="#FFFFFF"
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:id="@+id/a_sort"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text = "A"/>
+            android:text = "최신순"/>
         <Button
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:background="@drawable/back"
             android:textColor="#FFFFFF"
             android:id="@+id/b_sort"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text = "B"/>
+            android:text = "제목순"/>
         <Button
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:background="@drawable/back"
             android:textColor="#FFFFFF"
             android:id="@+id/c_sort"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text = "C"/>
+            android:text = "오래된순"/>
     </LinearLayout>
     <ListView
         android:layout_weight = "11"
