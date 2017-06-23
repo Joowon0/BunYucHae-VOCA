@@ -18,14 +18,10 @@ public class Editmode extends AppCompatActivity {
     public EditText uet;
     public EditText det;
     public Button savebtn;
-    public Button editbtn;
     public Button trans;
     public Button search;
     dbHelper mydbHelper;
     Translation1 transActivity = (Translation1) Translation1.thisActivity;
-
-
-    public Button translate;
     public static final String TAG = "Test_Alert_Dialog";
     Spinner bf,af;
 
@@ -38,13 +34,11 @@ public class Editmode extends AppCompatActivity {
         det = (EditText)findViewById(R.id.downedit);
         savebtn = (Button)findViewById(R.id.savetext);
 
-        trans = (Button) findViewById(R.id.translation);
+        trans = (Button) findViewById(R.id.translate);
         search = (Button) findViewById(R.id.searchbtn);
-
         bf = (Spinner)findViewById(R.id.before_lang);
         af = (Spinner)findViewById(R.id.after_lang);
-        translate=(Button)findViewById(R.id.translate);
-        editbtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
+
         uet.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         det.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
         savebtn.setTypeface(Typeface.createFromAsset(getAssets(), "HMFMPYUN.TTF"));
@@ -77,7 +71,7 @@ public class Editmode extends AppCompatActivity {
                 finish();
             }
         });
-        translate.setOnClickListener(new View.OnClickListener() {
+        trans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RequestAPI request = new RequestAPI();

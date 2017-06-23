@@ -63,7 +63,7 @@ public class JSONParser {
             httpCon.setDoInput(true);
 
             OutputStream os = httpCon.getOutputStream();
-            os.write(json.getBytes("euc-kr"));
+            os.write(json.getBytes(charset));
             os.flush();
             // receive response as inputStream
             try {
