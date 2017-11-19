@@ -3,11 +3,11 @@
 The project is making native app and a webpage connected to a server.
 
 This app and web transform an image to text.
-The text can be translated into other lanuages.
+The text can be translated into other languages.
 The text and the translated one can be saved and modified.
 There is also a dictionary and a vocabulary list.
 
-For more project explanation look at https://docs.google.com/document/d/1pFNDGy2rQIdR8CPBXqOwnbAPIA7nmi_dWpLjSvc8S8g/edit?usp=sharing.
+For more project explanation look at https://docs.google.com/document/d/1S84AOUQiRIAGg8k2211gNm2RaddjRp8-NhSWpcEZG8Y/edit?usp=sharing.
 
 ## Code Example
 
